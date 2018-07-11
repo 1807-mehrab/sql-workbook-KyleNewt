@@ -41,18 +41,23 @@ Task – Update name of artist in the Artist table “Creedence Clearwater Revival” 
 */
 UPDATE Customer SET FirstName='Robert', LastName='Walter' WHERE FirstName='Aaron', LastName='Mitchell';
 UPDATE Artist SET Name='CCR' WHERE Name='Creedence Clearwater Revival';
-/*
-### 2.5 LIKE
-Task – Select all invoices with a billing address like “T%”
 
+--### 2.5 LIKE – Select all invoices with a billing address like “T%”
+SELECT * FROM Invoice WHERE BillingAddress LIKE 'T%';
+
+/*
 ### 2.6 BETWEEN
 Task – Select all invoices that have a total between 15 and 50
 Task – Select all employees hired between 1st of June 2003 and 1st of March 2004
+*/
+SELECT * FROM Invoice WHERE Total BETWEEN 15 AND 50;
+SELECT * FROM Employee WHERE HireDate BETWEEN TO_DATE('2003-06-01 00:00:00','yyyy-mm-dd hh24:mi:ss' ) AND TO_DATE('2004-03-01 00:00:00','yyyy-mm-dd hh24:mi:ss');
 
-### 2.7 DELETE
-Task – Delete a record in Customer table where the name is Robert Walter (There may be constraints that rely on this, find out how to resolve them).
+--### 2.7 DELETE – Delete a record in Customer table where the name is Robert Walter (There may be constraints that rely on this, find out how to resolve them).
+DELETE FROM Customer WHERE LastName='Walter' AND FirstName='Robert';
+Select * FROM Customer WHERE LastName='Walter';
 
-
+/*
 ## 3. SQL Functions
 In this section you will be using the Oracle system functions, as well as your own functions, to perform various actions against the database
 
